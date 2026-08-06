@@ -124,3 +124,74 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-enter {
+  from {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-slide-in {
+  animation: slide-in 1200ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-hero-image {
+  animation: hero-image-enter 1600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility slide-in-delay-100 {
+  animation-delay: 100ms;
+}
+
+@utility slide-in-delay-200 {
+  animation-delay: 200ms;
+}
+
+@utility slide-in-delay-300 {
+  animation-delay: 300ms;
+}
+
+@utility slide-in-delay-400 {
+  animation-delay: 400ms;
+}
+
+@utility slide-in-delay-500 {
+  animation-delay: 500ms;
+}
+
+@utility slide-in-delay-600 {
+  animation-delay: 600ms;
+}
+
+@utility slide-in-delay-700 {
+  animation-delay: 700ms;
+}
+
+@utility slide-in-delay-800 {
+  animation-delay: 800ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-in,
+  .animate-hero-image {
+    animation: none;
+  }
+}
