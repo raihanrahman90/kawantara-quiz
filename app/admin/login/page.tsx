@@ -13,9 +13,10 @@ export default function AdminLoginPage() {
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    if (!supabase) return
+    const client = supabase
+    if (!client) return
 
-    void supabase.auth.getSession().then(({ data: { session } }) => {
+    void client.auth.getSession().then(({ data: { session } }) => {
       if (session) router.replace("/admin")
     })
   }, [router])

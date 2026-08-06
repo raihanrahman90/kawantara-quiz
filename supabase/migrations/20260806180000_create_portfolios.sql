@@ -41,24 +41,24 @@ for select
 to anon, authenticated
 using (true);
 
-create policy "Admins can create portfolios"
+create policy "Authenticated users can create portfolios"
 on public.portfolios
 for insert
 to authenticated
-with check ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+with check (true);
 
-create policy "Admins can update portfolios"
+create policy "Authenticated users can update portfolios"
 on public.portfolios
 for update
 to authenticated
-using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin')
-with check ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+using (true)
+with check (true);
 
-create policy "Admins can delete portfolios"
+create policy "Authenticated users can delete portfolios"
 on public.portfolios
 for delete
 to authenticated
-using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+using (true);
 
 grant select on public.portfolios to anon, authenticated;
 grant insert, update, delete on public.portfolios to authenticated;
